@@ -15,7 +15,7 @@ class KategoriController extends Controller
 
     public function create()
     {
-        return view('kategori.create');
+        return view('kategori.form');
     }
 
     public function store(Request $request)
