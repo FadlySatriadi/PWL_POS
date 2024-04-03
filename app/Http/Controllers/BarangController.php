@@ -68,16 +68,20 @@ class BarangController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'level_kode' => 'required|string|min:3|unique:m_level',
-            'level_name' => 'required|string|max:100'
+            'barang_kode' => 'required|string|min:3|unique:m_barang',
+            'barang_nama' => 'required|string|min:3',
+            'harga_beli' => 'required|integer|min:3',
+            'harga_jual' => 'required|integer|min:3'
         ]);
 
         BarangModel::create([
-            'level_kode' => $request->level_kode,
-            'level_name' => $request->level_name
+            'barang_kode' => $request->barang_kode,
+            'barang_nama' => $request->barang_name,
+            'harga_beli' => $request->harga_beli,
+            'harga_jual' => $request->harga_jual
         ]);
 
-        return redirect('/level')->with('success', 'Data level berhasil ditambahkan');
+        return redirect('/barang')->with('success', 'Data barang berhasil ditambahkan');
     }
 
     public function show($id)
@@ -147,7 +151,7 @@ class BarangController extends Controller
 
             return redirect('/barang')->with('success', 'Data barang berhasil dihapus');
         } catch (\Exception $e) {
-            return redirect('/barang')->with('error', '');
+            return redirect('/barang')->with('error', 'Data barang gagal dihapus karena masih terdapat tabel lain yang terkait dengan data ini');
         }
     }
 }
