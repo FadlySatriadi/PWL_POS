@@ -7,32 +7,32 @@
             <div class="card-tools"></div>
         </div>
         <div class="card-body">
-            @empty($kategori)
+            @empty($stok)
                 <div class="alert alert-danger alert-dismissible">
                     <h5><i class="icon fas fa-ban"></i> Kesalahan!</h5>
                     Data yang Anda cari tidak ditemukan.
                 </div>
-                <a href="{{ url('kategori') }}" class="btn btn-sm btn-default mt 2">Kembali</a>
+                <a href="{{ url('stok') }}" class="btn btn-sm btn-default mt 2">Kembali</a>
             @else
-                <form method="POST" action="{{ url('/kategori/' . $kategori->kategori_id) }}" class="form-horizontal">
+                <form method="POST" action="{{ url('/stok/' . $stok->stok_id) }}" class="form-horizontal">
                     @csrf
                     {!! method_field('PUT') !!}
                     <div class="form-group row">
-                        <label class="col-1 control-label col-form-label">kategori Kode</label>
+                        <label class="col-1 control-label col-form-label">Stok Tanggal</label>
                         <div class="col-11">
-                            <input type="text" class="form-control" id="kategori_kode" name="kategori_kode"
-                                value="{{ old('kategori_kode', $kategori->kategori_kode) }}" required>
-                            @error('kategori_kode')
+                            <input type="date" class="form-control" id="stok_tanggal" name="stok_tanggal"
+                                value="{{ old('stok_tanggal', $stok->stok_tanggal) }}" required>
+                            @error('stok_tanggal')
                                 <small class="form-text text-danger">{{ $message }}</small>
                             @enderror
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-1 control-label col-form-label">kategori Nama</label>
+                        <label class="col-1 control-label col-form-label">stok Nama</label>
                         <div class="col-11">
-                            <input type="text" class="form-control" id="kategori_nama" name="kategori_nama"
-                                value="{{ old('kategori_name', $kategori->kategori_nama) }}" required>
-                            @error('kategori_nama')
+                            <input type="text" class="form-control" id="stok_nama" name="stok_nama"
+                                value="{{ old('stok_name', $stok->stok_nama) }}" required>
+                            @error('stok_nama')
                                 <small class="form-text text-danger">{{ $message }}</small>
                             @enderror
                         </div>
@@ -41,7 +41,7 @@
                         <label class="col-1 control-label col-form-label"></label>
                         <div class="col-11">
                             <button type="submit" class="btn btn-primary btn-sm">Simpan</button>
-                            <a class="btn btn-sm btn-default ml-1" href="{{ url('kategori') }}">Kembali</a>
+                            <a class="btn btn-sm btn-default ml-1" href="{{ url('stok') }}">Kembali</a>
                         </div>
                     </div>
                 </form>

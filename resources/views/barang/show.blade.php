@@ -19,6 +19,10 @@
             <td>{{ $barang->barang_id }}</td>
           </tr>
           <tr>
+            <th>Kategori ID</th>
+            <td>{{ $barang->kategori_id }}</td>
+          </tr>
+          <tr>
             <th>Barang Kode</th>
             <td>{{ $barang->barang_kode }}</td>
           </tr>

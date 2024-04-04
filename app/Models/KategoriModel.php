@@ -14,7 +14,7 @@ class KategoriModel extends Model
     protected $primaryKey = 'kategori_id';
 
     protected $fillable = [
-        'kategori-kode',
+        'kategori_kode',
         'kategori_nama',
     ];
 

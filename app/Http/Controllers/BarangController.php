@@ -29,7 +29,7 @@ class BarangController extends Controller
 
     public function list(Request $request)
     {
-        $barangs = BarangModel::select('barang_id', 'barang_kode', 'barang_nama', 'harga_beli', 'harga_jual');
+        $barangs = BarangModel::select('barang_id', 'kategori_id', 'barang_kode', 'barang_nama', 'harga_beli', 'harga_jual');
         if ($request->barang_kode) {
             $barangs->where('barang_kode', $request->barang_kode);
         }
@@ -68,20 +68,22 @@ class BarangController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'barang_kode' => 'required|string|min:3|unique:m_barang',
-            'barang_nama' => 'required|string|min:3',
-            'harga_beli' => 'required|integer|min:3',
-            'harga_jual' => 'required|integer|min:3'
+            'kategorid' => 'required',
+            'kodeBarang' => 'required',
+            'namaBarang' => 'required',
+            'hargabeli' => 'required',
+            'hargajual' => 'required',
         ]);
 
         BarangModel::create([
-            'barang_kode' => $request->barang_kode,
-            'barang_nama' => $request->barang_name,
-            'harga_beli' => $request->harga_beli,
-            'harga_jual' => $request->harga_jual
+            'kategori_id' => $request->kategorid,
+            'barang_kode' => $request->kodeBarang,
+            'barang_nama' => $request->namaBarang,
+            'harga_beli' => $request->hargabeli,
+            'harga_jual' => $request->hargajual,
         ]);
 
-        return redirect('/barang')->with('success', 'Data barang berhasil ditambahkan');
+        return redirect('/barang')->with('success', 'Data level berhasil ditambahkan');
     }
 
     public function show($id)
@@ -151,7 +153,7 @@ class BarangController extends Controller
 
             return redirect('/barang')->with('success', 'Data barang berhasil dihapus');
         } catch (\Exception $e) {
-            return redirect('/barang')->with('error', 'Data barang gagal dihapus karena masih terdapat tabel lain yang terkait dengan data ini');
+            return redirect('/barang')->with('error', '');
         }
     }
 }
