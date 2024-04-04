@@ -15,7 +15,7 @@
                 @csrf
                 <div class="card-body">
                     <div class="form-group">
-                        <label for="kodeBarang">Kategori ID</label>
+                        <label for="kategorid">Kategori ID</label>
                         <input type="text" class="form-control" id="kategorid" name="kategorid"
                             placeholder="Masukkan Kategori ID">
                     </div>

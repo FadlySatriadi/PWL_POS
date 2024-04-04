@@ -8,7 +8,7 @@
     <div class="card-tools"></div>
     </div>
     <div class="card-body">
-      Selamat datang semua aw aw
+      Selamat datang
     </div>
 </div>
 @endsection

@@ -30,7 +30,7 @@ class StokController extends Controller
 
     public function list(Request $request)
     {
-        $stoks = StokModel::select('stok_id', 'barang_id', 'stok_tanggal','stok_jumlah',);
+        $stoks = StokModel::select('stok_id', 'barang_id', 'user_id', 'stok_tanggal','stok_jumlah',);
         if ($request->stok_jumlah) {
             $stoks->where('stok_jumlah', $request->stok_jumlah);
         }

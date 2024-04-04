@@ -7,52 +7,52 @@
             <div class="card-tools"></div>
         </div>
         <div class="card-body">
-            @empty($stok)
+            @empty($penjualan)
                 <div class="alert alert-danger alert-dismissible">
                     <h5><i class="icon fas fa-ban"></i> Kesalahan!</h5>
                     Data yang Anda cari tidak ditemukan.
                 </div>
-                <a href="{{ url('stok') }}" class="btn btn-sm btn-default mt 2">Kembali</a>
+                <a href="{{ url('penjualan') }}" class="btn btn-sm btn-default mt 2">Kembali</a>
             @else
-                <form method="POST" action="{{ url('/stok/' . $stok->stok_id) }}" class="form-horizontal">
+                <form method="POST" action="{{ url('/penjualan/' . $penjualan->penjualan_id) }}" class="form-horizontal">
                     @csrf
                     {!! method_field('PUT') !!}
-                    <div class="form-group row">
-                        <label class="col-1 control-label col-form-label">Barang ID</label>
-                        <div class="col-11">
-                            <input type="text" class="form-control" id="barang_id" name="barang_id"
-                                value="{{ old('barang_id', $stok->barang_id) }}" required>
-                            @error('barang_id')
-                                <small class="form-text text-danger">{{ $message }}</small>
-                            @enderror
-                        </div>
-                    </div>
                     <div class="form-group row">
                         <label class="col-1 control-label col-form-label">User ID</label>
                         <div class="col-11">
                             <input type="text" class="form-control" id="user_id" name="user_id"
-                                value="{{ old('user_id', $stok->user_id) }}" required>
+                                value="{{ old('user_id', $penjualan->user_id) }}" required>
                             @error('user_id')
                                 <small class="form-text text-danger">{{ $message }}</small>
                             @enderror
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-1 control-label col-form-label">Stok Tanggal</label>
+                        <label class="col-1 control-label col-form-label">Pembeli</label>
                         <div class="col-11">
-                            <input type="datetime-local" class="form-control" id="stok_tanggal" name="stok_tanggal"
-                                value="{{ old('stok_tanggal', $stok->stok_tanggal) }}" required>
-                            @error('stok_tanggal')
+                            <input type="text" class="form-control" id="pembeli" name="pembeli"
+                                value="{{ old('pembeli', $penjualan->pembeli) }}" required>
+                            @error('pembeli')
                                 <small class="form-text text-danger">{{ $message }}</small>
                             @enderror
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-1 control-label col-form-label">Jumlah</label>
+                        <label class="col-1 control-label col-form-label">Kode Penjualan</label>
                         <div class="col-11">
-                            <input type="text" class="form-control" id="stok_jumlah" name="stok_jumlah"
-                                value="{{ old('stok_jumlah', $stok->stok_jumlah) }}" required>
-                            @error('stok_jumlah')
+                            <input type="text" class="form-control" id="penjualan_kode" name="penjualan_kode"
+                                value="{{ old('penjualan_kode', $penjualan->penjualan_kode) }}" required>
+                            @error('penjualan_kode')
+                                <small class="form-text text-danger">{{ $message }}</small>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-1 control-label col-form-label">Tanggal Penjualan</label>
+                        <div class="col-11">
+                            <input type="datetime-local" class="form-control" id="penjualan_tanggal" name="penjualan_tanggal"
+                                value="{{ old('penjualan_tanggal', $penjualan->penjualan_tanggal) }}" required>
+                            @error('penjualan_tanggal')
                                 <small class="form-text text-danger">{{ $message }}</small>
                             @enderror
                         </div>
@@ -61,7 +61,7 @@
                         <label class="col-1 control-label col-form-label"></label>
                         <div class="col-11">
                             <button type="submit" class="btn btn-primary btn-sm">Simpan</button>
-                            <a class="btn btn-sm btn-default ml-1" href="{{ url('stok') }}">Kembali</a>
+                            <a class="btn btn-sm btn-default ml-1" href="{{ url('penjualan') }}">Kembali</a>
                         </div>
                     </div>
                 </form>

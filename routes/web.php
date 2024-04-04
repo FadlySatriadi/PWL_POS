@@ -78,6 +78,18 @@ Route::group(['prefix' => 'stok'], function () {
     Route::delete('/{id}', [StokController::class, 'destroy']);
 });
 
+Route::group(['prefix' => 'penjualan'], function () {
+    Route::get('/', [PenjualanController::class, 'index']);
+    Route::post('/list', [PenjualanController::class, 'list']);
+    Route::get('/create', [PenjualanController::class, 'create']);
+    Route::post('/', [PenjualanController::class, 'store']);
+    Route::get('/{id}', [PenjualanController::class, 'show']);
+    Route::get('/{id}/edit', [PenjualanController::class, 'edit']);
+    Route::put('/{id}', [PenjualanController::class, 'update']);
+    Route::delete('/{id}', [PenjualanController::class, 'destroy']);
+});
+
+
 Route::get('/level', [LevelController::class, 'index']);
 // Route::get('/kategori', [KategoriController::class, 'index']);
 // Route::get('/kategori/create', [KategoriController::class, 'create']);
