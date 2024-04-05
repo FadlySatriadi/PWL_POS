@@ -59,6 +59,12 @@
                     <p>Transaksi Penjualan</p>
                 </a>
             </li>
+            <li class="nav-item">
+                <a href="{{ url('/detail') }}" class="nav-link {{ $activeMenu == 'detail' ? 'active' : '' }} ">
+                    <i class="nav-icon fas fa-donate"></i>
+                    <p>Detail Transaksi</p>
+                </a>
+            </li>
         </ul>
     </nav>
 </div>

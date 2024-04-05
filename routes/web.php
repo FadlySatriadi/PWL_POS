@@ -89,6 +89,16 @@ Route::group(['prefix' => 'penjualan'], function () {
     Route::delete('/{id}', [PenjualanController::class, 'destroy']);
 });
 
+Route::group(['prefix' => 'detail'], function () {
+    Route::get('/', [DetailController::class, 'index']);
+    Route::post('/list', [DetailController::class, 'list']);
+    Route::get('/create', [DetailController::class, 'create']);
+    Route::post('/', [DetailController::class, 'store']);
+    Route::get('/{id}', [DetailController::class, 'show']);
+    Route::get('/{id}/edit', [DetailController::class, 'edit']);
+    Route::put('/{id}', [DetailController::class, 'update']);
+    Route::delete('/{id}', [DetailController::class, 'destroy']);
+});
 
 Route::get('/level', [LevelController::class, 'index']);
 // Route::get('/kategori', [KategoriController::class, 'index']);
@@ -103,4 +113,4 @@ Route::get('/user/hapus/{id}', [UserController::class, 'hapus']);
 Route::get('/barang', [BarangController::class, 'index']);
 Route::get('/penjualan', [PenjualanController::class, 'index']);
 Route::get('/stok', [StokController::class, 'index']);
-Route::get('/penjualan-detail', [DetailController::class, 'index']);
+// Route::get('/penjualan-detail', [DetailController::class, 'index']);
