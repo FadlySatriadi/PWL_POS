@@ -25,6 +25,8 @@ class DatabaseSeeder extends Seeder
             BarangSeeder::class,
             UserSeeder::class,
             StokSeeder::class,
+            DetailSeeder::class,
+            PenjualanSeeder::class,
         ]);
     }
 }
